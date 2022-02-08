@@ -18,7 +18,7 @@ class _PictureState extends State<Picture> {
   ImagePicker picker = ImagePicker();
 
   Future getImage() async {
-     final image = await ImagePicker().pickImage(source: ImageSource.camera,maxHeight: 320,maxWidth: 220,imageQuality: 100);
+     final image = await ImagePicker().pickImage(source: ImageSource.camera,maxHeight: 720,maxWidth: 720,imageQuality: 100);
     try {
       if (image == null) return;
 
