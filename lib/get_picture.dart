@@ -3,6 +3,7 @@
 import 'dart:io';
 
 import "package:flutter/material.dart";
+import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 
 class Picture extends StatefulWidget {
@@ -13,16 +14,21 @@ class Picture extends StatefulWidget {
 }
 
 class _PictureState extends State<Picture> {
-  File? _image;
+  File? image;
   ImagePicker picker = ImagePicker();
 
   Future getImage() async {
-    var image = await picker.pickImage(
-        source: ImageSource.camera, maxHeight: 252.0, maxWidth: 400.0);
+     final image = await ImagePicker().pickImage(source: ImageSource.camera,maxHeight: 320,maxWidth: 220,imageQuality: 100);
+    try {
+      if (image == null) return;
 
-    setState(() {
-      _image = image as File?;
-    });
+      final imageTempo = File(image.path);
+      setState(() {
+        this.image = imageTempo;
+      });
+    } on PlatformException catch (e) {
+      print("Failed to pick image $e");
+    }
   }
 
   @override
@@ -30,9 +36,9 @@ class _PictureState extends State<Picture> {
     return Scaffold(
       appBar: AppBar(title: const Text("File image picking")),
       body: Center(
-          child: _image == null
+          child: image == null
               ? Text("No image selected")
-              : Image.file(_image!, height: 120, width: 120)),
+              : Image.file(image!, height: 120, width: 120)),
       floatingActionButton: FloatingActionButton(
         onPressed: getImage,
         tooltip: "pick Image",
