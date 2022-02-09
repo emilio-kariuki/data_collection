@@ -4,6 +4,7 @@ import 'package:data_collection/set_pic.dart';
 import "package:flutter/material.dart";
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 
 class Test extends StatefulWidget {
   final User value;
