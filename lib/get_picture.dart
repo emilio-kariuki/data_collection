@@ -8,7 +8,7 @@ import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 
 class User {
-  File name;
+  File? name;
   User({required this.name});
 }
 
@@ -20,7 +20,7 @@ class Picture extends StatefulWidget {
 }
 
 class _PictureState extends State<Picture> {
-  late File image;
+   File? image;
   ImagePicker picker = ImagePicker();
 
   Future getImage() async {
@@ -48,7 +48,7 @@ class _PictureState extends State<Picture> {
       body: Center(
           child: image == null
               ? Text("No image selected")
-              : Image.file(image, height: 120, width: 120)),
+              : Image.file(image!, height: 120, width: 120)),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           setState(() {
