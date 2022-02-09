@@ -33,13 +33,16 @@ class _TestState extends State<Test> {
               Text(date == null ? "No date has been picked" : date.toString())),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-            showDatePicker(
-                    context: context,
-                    initialDate: date ?? DateTime.now(),
-                    firstDate: DateTime(2000),
-                    lastDate: DateTime(2023))
-                .then((value) => date = value);
-         
+          showDatePicker(
+                  context: context,
+                  initialDate: date ?? DateTime.now(),
+                  firstDate: DateTime(2000),
+                  lastDate: DateTime(2023))
+              .then((value) {
+            setState(() {
+              date = value;
+            });
+          });
         },
         child: const Icon(Icons.date_range),
         tooltip: "Pick Date",
