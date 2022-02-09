@@ -42,7 +42,6 @@ class _TestState extends State<Test> {
             setState(() {
               date = value;
               date = DateFormat.yMMM().format(date!) as DateTime?;
-              String datr = date.toString();
             });
           });
         },
