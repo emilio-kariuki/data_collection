@@ -34,10 +34,7 @@ class _TestState extends State<Test> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           setState(() {
-            String formattedDate =
-                DateFormat('yyyy-MM-dd – kk:mm').format(date!);
-            ScaffoldMessenger.of(context)
-                .showSnackBar(SnackBar(content: Text(formattedDate),backgroundColor: Colors.red,));
+            
             showDatePicker(
                     context: context,
                     initialDate: date ?? DateTime.now(),
