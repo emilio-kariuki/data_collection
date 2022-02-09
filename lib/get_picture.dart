@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, await_only_futures
+// ignore_for_file: prefer_const_constructors, await_only_futures, unnecessary_null_comparison
 
 import 'dart:io';
 
@@ -48,7 +48,7 @@ class _PictureState extends State<Picture> {
       body: Center(
           child: image == null
               ? Text("No image selected")
-              : Image.file(image!, height: 120, width: 120)),
+              : Image.file(image, height: 120, width: 120)),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           setState(() {
