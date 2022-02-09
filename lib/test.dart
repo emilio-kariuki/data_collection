@@ -15,6 +15,17 @@ class Test extends StatefulWidget {
 }
 
 class _TestState extends State<Test> {
+  final items = [
+    'Emilio',
+    "Kariuki",
+    "Gichuru",
+    "Jane",
+    "Rosie",
+    "Joy",
+    "Kennedy",
+    "Peter",
+    "Rachel"
+  ];
   DateTime? date;
 
   @override
@@ -28,9 +39,13 @@ class _TestState extends State<Test> {
                 fontWeight: FontWeight.bold,
                 color: Colors.black)),
       ),
-      body: Center(
-          child:
-              Text(date == null ? "No date has been picked" : date.toString())),
+      body: Column(
+        children: [
+          Center(
+              child: Text(
+                  date == null ? "No date has been picked" : date.toString())),
+        ],
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showDatePicker(
