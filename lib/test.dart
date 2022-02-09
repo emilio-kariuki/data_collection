@@ -41,6 +41,7 @@ class _TestState extends State<Test> {
               .then((value) {
             setState(() {
               date = value;
+              date = DateFormat.yMMM().format(date!) as DateTime?;
             });
           });
         },
