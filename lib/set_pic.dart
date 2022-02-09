@@ -20,7 +20,7 @@ class _SettState extends State<Sett> {
     return Scaffold(
       appBar: AppBar(title: const Text("Set the Image")),
       body: Center(
-          child: SvgPicture.asset(widget.value.name,height: 100,width: 120,)
+          child: Image.asset(widget.value.name,height: 100,width: 120,)
       )
     );
   }
