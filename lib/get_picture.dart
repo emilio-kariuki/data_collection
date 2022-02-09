@@ -18,7 +18,11 @@ class _PictureState extends State<Picture> {
   ImagePicker picker = ImagePicker();
 
   Future getImage() async {
-     final image = await ImagePicker().pickImage(source: ImageSource.camera,maxHeight: 720,maxWidth: 720,imageQuality: 100);
+    final image = await ImagePicker().pickImage(
+        source: ImageSource.camera,
+        maxHeight: 720,
+        maxWidth: 720,
+        imageQuality: 100);
     try {
       if (image == null) return;
 
@@ -40,7 +44,12 @@ class _PictureState extends State<Picture> {
               ? Text("No image selected")
               : Image.file(image!, height: 120, width: 120)),
       floatingActionButton: FloatingActionButton(
-        onPressed: getImage,
+        onPressed: () {
+          setState(() {
+            getImage();
+            Navigator.pushNamed(context, "/set", arguments: {"image": image});
+          });
+        },
         tooltip: "pick Image",
         child: Icon(Icons.add_a_photo),
       ),
