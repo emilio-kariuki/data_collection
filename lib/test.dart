@@ -76,6 +76,29 @@ class _TestState extends State<Test> {
                       ),
                     ))
                 .toList(),
+                buttonPadding: const EdgeInsets.only(left: 14, right: 14),
+            buttonDecoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(14),
+              border: Border.all(
+                color: Colors.black26,
+              ),
+              color: Colors.redAccent,
+            ),
+            buttonElevation: 2,
+            itemHeight: 40,
+            itemPadding: const EdgeInsets.only(left: 14, right: 14),
+            dropdownMaxHeight: 200,
+            dropdownWidth: 200,
+            dropdownPadding: null,
+            dropdownDecoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(14),
+              color: Colors.redAccent,
+            ),
+            dropdownElevation: 8,
+            scrollbarRadius: const Radius.circular(40),
+            scrollbarThickness: 6,
+            scrollbarAlwaysShow: true,
+            offset: const Offset(-20, 0),
           )
         ],
       ),
