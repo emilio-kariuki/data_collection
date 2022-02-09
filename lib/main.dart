@@ -5,13 +5,10 @@ import 'package:flutter/material.dart';
 import "set_pic.dart";
 
 void main() {
+  // ignore: prefer_const_constructors
   runApp(MaterialApp(
     // home: Picture(),
-    initialRoute: "/take",
-    routes: {
-      "/take": (context) => const Picture(),
-      "/set": (context) => const Set(),
-    },
+    home: const Picture(),
     debugShowCheckedModeBanner: false,
   ));
 }

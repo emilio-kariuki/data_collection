@@ -1,22 +1,23 @@
 import 'dart:io';
 
+import 'package:data_collection/get_picture.dart';
 import "package:flutter/material.dart";
 
 
-class Set extends StatefulWidget {
-  const Set({Key? key}) : super(key: key);
+class Sett extends StatefulWidget {
+  const Sett({Key? key, required User value}) : super(key: key);
 
   @override
-  State<Set> createState() => _SetState();
+  State<Sett> createState() => _SettState();
 }
 
-class _SetState extends State<Set> {
+class _SettState extends State<Sett> {
   @override
   Widget build(BuildContext context) {
-    File image = ModalRoute.of(context)
+    
     return Scaffold(
       appBar: AppBar(title: Text("Set the Image")),
-      future: 
+      
     );
   }
 }

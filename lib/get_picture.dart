@@ -1,10 +1,16 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, await_only_futures
 
 import 'dart:io';
 
+import 'package:data_collection/set_pic.dart';
 import "package:flutter/material.dart";
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
+
+class User {
+  File name;
+  User({required this.name});
+}
 
 class Picture extends StatefulWidget {
   const Picture({Key? key}) : super(key: key);
@@ -14,7 +20,7 @@ class Picture extends StatefulWidget {
 }
 
 class _PictureState extends State<Picture> {
-  File? image;
+  late File image;
   ImagePicker picker = ImagePicker();
 
   Future getImage() async {
@@ -27,8 +33,8 @@ class _PictureState extends State<Picture> {
       if (image == null) return;
 
       final imageTempo = File(image.path);
-      setState(() {
-        this.image = imageTempo;
+      setState(() async{
+        this.image = await imageTempo;
       });
     } on PlatformException catch (e) {
       print("Failed to pick image $e");
@@ -47,7 +53,8 @@ class _PictureState extends State<Picture> {
         onPressed: () {
           setState(() {
             getImage();
-            Navigator.pushNamed(context, "/set", arguments: {"image": image});
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => Sett(value: User(name: image))));
           });
         },
         tooltip: "pick Image",
