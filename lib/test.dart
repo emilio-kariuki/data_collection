@@ -46,11 +46,12 @@ class _TestState extends State<Test> {
           Center(
               child: Text(
                   date == null ? "No date has been picked" : date.toString())),
-                  DropdownButton2(
-         value: selectedValue,
+          DropdownButton2(
+            value: selectedValue,
             onChanged: (value) {
               setState(() {
                 selectedValue = value as String;
+                print(selectedValue);
               });
             },
             icon: const Icon(
@@ -62,20 +63,20 @@ class _TestState extends State<Test> {
             buttonHeight: 50,
             buttonWidth: 160,
             items: items
-                        .map((item) => DropdownMenuItem<String>(
-                              value: item,
-                              child: Text(
-                                item,
-                                style: const TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black,
-                                ),
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                            ))
-                        .toList(),
-                )
+                .map((item) => DropdownMenuItem<String>(
+                      value: item,
+                      child: Text(
+                        item,
+                        style: const TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        ),
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ))
+                .toList(),
+          )
         ],
       ),
       floatingActionButton: FloatingActionButton(
@@ -97,5 +98,7 @@ class _TestState extends State<Test> {
       ),
     );
   }
-  DropdownMenuItem buildMenuItems(String item) => DropdownMenuItem(value: item, child: Text(item));
+
+  DropdownMenuItem buildMenuItems(String item) =>
+      DropdownMenuItem(value: item, child: Text(item));
 }
