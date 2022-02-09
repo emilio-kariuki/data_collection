@@ -31,12 +31,14 @@ class _TestState extends State<Test> {
               Text(date == null ? "No date has been picked" : date.toString())),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          showDatePicker(
+          setState(() {
+            showDatePicker(
                   context: context,
                   initialDate: date ?? DateTime.now(),
                   firstDate: DateTime(2000),
                   lastDate: DateTime(2023))
               .then((value) => date = value);
+          });
         },
         child:
           const Icon(Icons.date_range),
