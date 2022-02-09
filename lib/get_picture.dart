@@ -7,9 +7,9 @@ import "package:flutter/material.dart";
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 
-class User {
+class Users {
   String name;
-  User({required this.name});
+  Users({required this.name});
 }
 
 class Picture extends StatefulWidget {
@@ -54,7 +54,7 @@ class _PictureState extends State<Picture> {
           setState(() {
             getImage();
             Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => Sett(value: User(name: "assets/svg/login.svg"))));
+                .push(MaterialPageRoute(builder: (context) => Sett(value: Users(name: "assets/svg/login.svg"))));
           });
         },
         tooltip: "pick Image",

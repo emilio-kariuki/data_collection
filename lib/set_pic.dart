@@ -11,7 +11,7 @@ class User {
 }
 
 class Sett extends StatefulWidget {
-  final User value;
+  final Users value;
   const Sett({Key? key, required this.value}) : super(key: key);
 
   @override
