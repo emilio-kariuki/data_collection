@@ -8,7 +8,7 @@ import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 
 class User {
-  File? name;
+  String name;
   User({required this.name});
 }
 
@@ -31,7 +31,7 @@ class _PictureState extends State<Picture> {
         imageQuality: 100);
     try {
       if (image == null) return;
-
+      
       final imageTempo = File(image.path);
       setState(() async{
         this.image = await imageTempo;
@@ -54,7 +54,7 @@ class _PictureState extends State<Picture> {
           setState(() {
             getImage();
             Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => Sett(value: User(name: image))));
+                .push(MaterialPageRoute(builder: (context) => Sett(value: User(name: "assets/svg/chat"))));
           });
         },
         tooltip: "pick Image",

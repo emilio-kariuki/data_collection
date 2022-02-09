@@ -4,6 +4,7 @@ import 'dart:io';
 
 import 'package:data_collection/get_picture.dart';
 import "package:flutter/material.dart";
+import 'package:flutter_svg/flutter_svg.dart';
 
 class Sett extends StatefulWidget {
   final User value;
@@ -19,9 +20,8 @@ class _SettState extends State<Sett> {
     return Scaffold(
       appBar: AppBar(title: const Text("Set the Image")),
       body: Center(
-          child: widget.value.name == null
-              ? const Text("No image selected")
-              : Image.file(widget.value.name, height: 120, width: 120)),
+          child: SvgPicture.asset(widget.value.name)
+      )
     );
   }
 }
