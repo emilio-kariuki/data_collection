@@ -30,7 +30,7 @@ class _SettState extends State<Sett> {
         height: size.height * 0.4,
         width: size.width * 0.4,
       )),
-      floatingActionButton: FloatingActionButton(onPressed: () {
+      floatingActionButton: FloatingActionButton(tooltip: "add image",onPressed: () {
         Navigator.of(context).push(MaterialPageRoute(
             builder: (context) => Test(value: User(name: widget.value.name))));
       }),
