@@ -1,4 +1,4 @@
-// ignore_for_file: unused_local_variable
+// ignore_for_file: unused_local_variable, prefer_const_constructors
 
 import 'package:data_collection/set_pic.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
@@ -78,11 +78,11 @@ class _TestState extends State<Test> {
                 .toList(),
                 buttonPadding: const EdgeInsets.only(left: 14, right: 14),
             buttonDecoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(14),
+              borderRadius: BorderRadius.circular(2),
               border: Border.all(
                 color: Colors.black26,
               ),
-              color: Colors.redAccent,
+              color: Color.fromARGB(255, 211, 204, 204),
             ),
             buttonElevation: 2,
             itemHeight: 40,
@@ -91,8 +91,7 @@ class _TestState extends State<Test> {
             dropdownWidth: 200,
             dropdownPadding: null,
             dropdownDecoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(14),
-              color: Colors.redAccent,
+              color: Color.fromARGB(255, 85, 82, 82),
             ),
             dropdownElevation: 8,
             scrollbarRadius: const Radius.circular(40),
