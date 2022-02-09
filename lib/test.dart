@@ -1,6 +1,7 @@
 // ignore_for_file: unused_local_variable
 
 import 'package:data_collection/set_pic.dart';
+import 'package:dropdown_button2/dropdown_button2.dart';
 import "package:flutter/material.dart";
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -15,7 +16,8 @@ class Test extends StatefulWidget {
 }
 
 class _TestState extends State<Test> {
-  final items = [
+  String? selectedValue;
+  List<String> items = [
     'Emilio',
     "Kariuki",
     "Gichuru",
@@ -44,6 +46,36 @@ class _TestState extends State<Test> {
           Center(
               child: Text(
                   date == null ? "No date has been picked" : date.toString())),
+                  DropdownButton2(
+         value: selectedValue,
+            onChanged: (value) {
+              setState(() {
+                selectedValue = value as String;
+              });
+            },
+            icon: const Icon(
+              Icons.arrow_forward_ios_outlined,
+            ),
+            iconSize: 14,
+            iconEnabledColor: Colors.yellow,
+            iconDisabledColor: Colors.grey,
+            buttonHeight: 50,
+            buttonWidth: 160,
+            items: items
+                        .map((item) => DropdownMenuItem<String>(
+                              value: item,
+                              child: Text(
+                                item,
+                                style: const TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ))
+                        .toList(),
+                )
         ],
       ),
       floatingActionButton: FloatingActionButton(
@@ -65,4 +97,5 @@ class _TestState extends State<Test> {
       ),
     );
   }
+  DropdownMenuItem buildMenuItems(String item) => DropdownMenuItem(value: item, child: Text(item));
 }
