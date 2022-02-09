@@ -3,6 +3,7 @@
 import 'package:data_collection/set_pic.dart';
 import "package:flutter/material.dart";
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Test extends StatefulWidget {
   final User value;
@@ -19,7 +20,11 @@ class _TestState extends State<Test> {
     final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        title:  Text("Test Page",),
+        title: Text("Test Page",
+            style: GoogleFonts.roboto(
+                fontSize: 28,
+                fontWeight: FontWeight.bold,
+                color: Colors.black)),
       ),
       body: Center(
           child:
@@ -27,12 +32,15 @@ class _TestState extends State<Test> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showDatePicker(
-              context: context,
-              initialDate: date ?? DateTime.now(),
-              firstDate: DateTime(2000),
-              lastDate: DateTime(2023)
-              ).then((value) => date = value);
+                  context: context,
+                  initialDate: date ?? DateTime.now(),
+                  firstDate: DateTime(2000),
+                  lastDate: DateTime(2023))
+              .then((value) => date = value);
         },
+        child:
+          const Icon(Icons.date_range),
+          tooltip: "Pick Date",
       ),
     );
   }
