@@ -17,11 +17,14 @@ class Sett extends StatefulWidget {
 class _SettState extends State<Sett> {
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(title: const Text("Set the Image")),
-      body: Center(
-          child: Image.asset(widget.value.name,height: 100,width: 120,)
-      )
-    );
+        appBar: AppBar(title: const Text("Set the Image")),
+        body: Center(
+            child: Image.asset(
+          widget.value.name,
+          height: size.height * 0.4,
+          width: size.width * 0.4,
+        )));
   }
 }
