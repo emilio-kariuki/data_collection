@@ -54,7 +54,7 @@ class _PictureState extends State<Picture> {
           setState(() {
             getImage();
             Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => Sett(value: User(name: "assets/svg/chat.svg"))));
+                .push(MaterialPageRoute(builder: (context) => Sett(value: User(name: "assets/eco.jpeg"))));
           });
         },
         tooltip: "pick Image",
