@@ -16,6 +16,7 @@ class Test extends StatefulWidget {
 
 class _TestState extends State<Test> {
   DateTime? date;
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -33,17 +34,20 @@ class _TestState extends State<Test> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           setState(() {
+            String formattedDate =
+                DateFormat('yyyy-MM-dd – kk:mm').format(date!);
+            ScaffoldMessenger.of(context)
+                .showSnackBar(SnackBar(content: Text(formattedDate),backgroundColor: Colors.red,));
             showDatePicker(
-                  context: context,
-                  initialDate: date ?? DateTime.now(),
-                  firstDate: DateTime(2000),
-                  lastDate: DateTime(2023))
-              .then((value) => date = value);
+                    context: context,
+                    initialDate: date ?? DateTime.now(),
+                    firstDate: DateTime(2000),
+                    lastDate: DateTime(2023))
+                .then((value) => date = value);
           });
         },
-        child:
-          const Icon(Icons.date_range),
-          tooltip: "Pick Date",
+        child: const Icon(Icons.date_range),
+        tooltip: "Pick Date",
       ),
     );
   }
